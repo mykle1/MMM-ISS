@@ -5,7 +5,8 @@
  */
 
 .MMM-ISS .header {
-  color: #62FF00;               /* Header color. Default is white. */
+  color: cyan;               /* Header color. Default is white. */
+  text-align: center;
 }
 
 .MMM-ISS .risetime {
@@ -14,4 +15,8 @@
 
 .MMM-ISS .duration {
   color: #FFFFFF;               /* duration color. Default is white. */
+}
+
+.MMM-ISS .spacer {
+  color: cyan;              /* spacer color. Default is white. */
 }

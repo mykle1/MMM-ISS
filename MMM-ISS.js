@@ -30,7 +30,7 @@ Module.register("MMM-ISS", {
 
 
         //  Set locale.
-        this.url = "http://api.open-notify.org/iss-pass.json?lat="  + this.config.lat +  "&lon="  + this.config.lng + "&n=10";
+        this.url = "http://api.open-notify.org/iss-pass.json?lat="  + this.config.lat +  "&lon="  + this.config.lng + "&n=5";
         this.ISS = {};
         this.scheduleUpdate();
     },
@@ -50,15 +50,37 @@ Module.register("MMM-ISS", {
 
         if (this.config.useHeader != false) {
             var header = document.createElement("header");
-            header.classList.add("xsmall", "bright", "light");
+            header.classList.add("xsmall", "bright", "header");
             header.innerHTML = this.config.header;
             wrapper.appendChild(header);
         }
+		
+		var ISS = this.ISS;
+		
+		for (var i = 0, len = ISS.response.length; i < len; i++) {
 
-        var ISS = this.ISS;
- //       var lat = this.config.lat; // latitude
- //       var lng = this.config.lng; // longitude
- 
+            var risetime = document.createElement("div");
+            risetime.classList.add("xsmall", "bright", "risetime");
+            risetime.innerHTML = "ISS appears @ " + moment.unix(ISS.response[i].risetime).format("h:mm a MMMM DD YYYY");
+            wrapper.appendChild(risetime);
+			
+			
+			var duration = document.createElement("div");
+            duration.classList.add("xsmall", "bright", "duration");
+            duration.innerHTML = "Duration of appearance is " + moment.unix(ISS.response[i].duration).format("m") + " min " + moment.unix(ISS.response[0].duration).format("ss") + " secs";
+            wrapper.appendChild(duration);
+			
+			
+			var spacer = document.createElement("div");
+            spacer.classList.add("xsmall", "bright", "spacer");
+            spacer.innerHTML = " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ";
+            wrapper.appendChild(spacer);
+			
+        }
+		
+/*		
+
+    //    var ISS = this.ISS;
  
  
 		// risetime
@@ -75,7 +97,7 @@ Module.register("MMM-ISS", {
 														// // moment.unix(Lunartic.FM.UT).format("MMM DD YYYY h:mm a");
  	    wrapper.appendChild(duration);
 		
-		
+*/		
 		return wrapper;
 		
 		
