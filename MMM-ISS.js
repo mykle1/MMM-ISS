@@ -32,6 +32,7 @@ Module.register("MMM-ISS", {
         //  Set locale.
         this.url = "http://api.open-notify.org/iss-pass.json?lat="  + this.config.lat +  "&lon="  + this.config.lng + "&n=5";
         this.ISS = {};
+		this.VELALT = {};
         this.scheduleUpdate();
     },
 
@@ -56,6 +57,21 @@ Module.register("MMM-ISS", {
         }
 		
 		var ISS = this.ISS;
+		var VELALT = this.VELALT;
+		
+		
+		var velocity = document.createElement("div");
+            velocity.classList.add("xsmall", "bright", "velocity");
+            velocity.innerHTML = "Current velocity is " + VELALT.velocity;
+            wrapper.appendChild(velocity);
+			
+			
+			var altitude = document.createElement("div");
+            altitude.classList.add("xsmall", "bright", "altitude");
+            altitude.innerHTML = "Current altitude is " + VELALT.altitude;
+            wrapper.appendChild(altitude);
+		
+		
 		
 		for (var i = 0, len = ISS.response.length; i < len; i++) {
 
@@ -70,34 +86,29 @@ Module.register("MMM-ISS", {
             duration.innerHTML = "Duration of appearance is " + moment.unix(ISS.response[i].duration).format("m") + " min " + moment.unix(ISS.response[0].duration).format("ss") + " secs";
             wrapper.appendChild(duration);
 			
+/*			
+			var velocity = document.createElement("div");
+            velocity.classList.add("xsmall", "bright", "velocity");
+            velocity.innerHTML = "Velocity is " + VELALT.velocity;
+            wrapper.appendChild(velocity);
+			
+			
+			var altitude = document.createElement("div");
+            altitude.classList.add("xsmall", "bright", "altitude");
+            altitude.innerHTML = "Altitude is " + VELALT.altitude;
+            wrapper.appendChild(altitude);
+			
+*/			
 			
 			var spacer = document.createElement("div");
             spacer.classList.add("xsmall", "bright", "spacer");
             spacer.innerHTML = " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ";
             wrapper.appendChild(spacer);
 			
+			
         }
 		
-/*		
 
-    //    var ISS = this.ISS;
- 
- 
-		// risetime
-        var risetime = document.createElement("div");
-        risetime.classList.add("xsmall", "bright", "risetime");
-        risetime.innerHTML = "ISS appears @ " + moment.unix(ISS.response[0].risetime).format("h:mm a MMMM DD YYYY");
-        wrapper.appendChild(risetime);
-		
-		
-		// duration
-        var duration = document.createElement("div");
-        duration.classList.add("xsmall", "bright", "duration");
-        duration.innerHTML = "Duration of appearance is " + moment.unix(ISS.response[0].duration).format("m") + " min " + moment.unix(ISS.response[0].duration).format("ss") + " secs";
-														// // moment.unix(Lunartic.FM.UT).format("MMM DD YYYY h:mm a");
- 	    wrapper.appendChild(duration);
-		
-*/		
 		return wrapper;
 		
 		
@@ -109,6 +120,15 @@ Module.register("MMM-ISS", {
 		console.log(this.ISS); // for checking in dev console
         this.loaded = true;
     },
+	
+	
+	processVELALT: function(data) {
+        this.VELALT = data;
+		console.log(this.VELALT); // for checking in dev console
+        this.loaded = true;
+    },
+	
+	
 
     scheduleUpdate: function() {
         setInterval(() => {
@@ -124,9 +144,14 @@ Module.register("MMM-ISS", {
     socketNotificationReceived: function(notification, payload) {
         if (notification === "ISS_RESULT") {
             this.processISS(payload);
-
             this.updateDom(this.config.animationSpeed);
         }
+		
+		if (notification === "VELALT_RESULT") {
+            this.processVELALT(payload);
+            this.updateDom(this.config.fadeSpeed);
+        }
+		
         this.updateDom(this.config.initialLoadDelay);
     },
 });
