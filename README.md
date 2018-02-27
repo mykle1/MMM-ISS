@@ -1,7 +1,10 @@
 ## MMM-ISS
 
-See when the International Space Station is visible.
-Based on your latitude and longitude.
+Know when the International Space Station is visible. Based on your latitude and longitude.
+
+## Cool fact
+
+The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second!). This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes!
 
 ## What you get
 
