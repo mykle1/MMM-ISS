@@ -6,6 +6,10 @@ Know when the International Space Station is visible. Based on your latitude and
 
 The International Space Station travels in orbit around Earth at a speed of roughly 17,150 miles per hour (that's about 5 miles per second!). This means that the Space Station orbits Earth (and sees a sunrise) once every 92 minutes!
 
+## Can I see it without a telescope?
+
+You sure as hell can! Every so often, you can see the ISS in your night sky. To us on Earth, it looks like a bright star moving quickly above the horizon. ... Visible to the naked eye, the station is best seen at dawn and dusk, and is the third brightest object in the sky.
+
 ## What you get
 
 * The current altitude of the ISS
