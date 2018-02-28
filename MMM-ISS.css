@@ -9,12 +9,25 @@
   text-align: center;
 }
 
+
+.MMM-ISS .velocity {
+  color: cyan;               /* velocity color. Default is white. */
+  text-align: center;
+}
+
+.MMM-ISS .altitude {
+  color: cyan;               /* altitude color. Default is white. */
+  text-align: center;
+}
+
 .MMM-ISS .risetime {
   color: #FFFFFF;               /* risetime color. Default is white. */
+  text-align: center;
 }
 
 .MMM-ISS .duration {
   color: #FFFFFF;               /* duration color. Default is white. */
+  text-align: center;
 }
 
 .MMM-ISS .spacer {

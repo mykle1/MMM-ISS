@@ -10,6 +10,7 @@ Module.register("MMM-ISS", {
     defaults: {
         lat: "",                                  // latitude
         lng: "",                                  // longitude
+		units: "mi",                              // mi = miles,mph, km = kilometers,
         useHeader: false,                         // true if you want a header      
         header: "Weather Without Icons",          // Any text you want. useHeader must be true
         maxWidth: "300px",
@@ -61,14 +62,22 @@ Module.register("MMM-ISS", {
 		
 		
 		var velocity = document.createElement("div");
-            velocity.classList.add("xsmall", "bright", "velocity");
-            velocity.innerHTML = "Current velocity is " + VELALT.velocity;
+            velocity.classList.add("small", "bright", "velocity");
+			if (this.config.units != "km"){
+				velocity.innerHTML = "ISS velocity is " + Math.round(VELALT.velocity * 0.621371) + " mph";
+			} else {
+				velocity.innerHTML = "ISS velocity is " + Math.round(VELALT.velocity) + " km/h";
+			}
             wrapper.appendChild(velocity);
 			
 			
 			var altitude = document.createElement("div");
-            altitude.classList.add("xsmall", "bright", "altitude");
-            altitude.innerHTML = "Current altitude is " + VELALT.altitude;
+            altitude.classList.add("small", "bright", "altitude");
+			if (this.config.units != "km"){
+				altitude.innerHTML = "ISS altitude is " + Math.round(VELALT.altitude * 0.621371) + " miles";
+			} else {
+            altitude.innerHTML = "ISS altitude is " + Math.round(VELALT.altitude) + " km";
+			}
             wrapper.appendChild(altitude);
 		
 		
