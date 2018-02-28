@@ -30,21 +30,17 @@ TBD
 
 * No dependencies, yet! :-)
 
-
 ## Config.js entry and options
 
 {
-disabled: false,
-module: 'MMM-ISS',
-	position: 'top_left', 
-		config: {
-		lat: "40.57",                                  // latitude
-		lng: "-74.11",                                  // longitude
-		units: "km",                              // mi = miles, mph / km = kilometers, km/h
-		useHeader: false,                         // true if you want a header      
-		header: "International Space Station",          // Any text you want. useHeader must be true
-		maxWidth: "254px",
-		animationSpeed: 3000,
-		updateInterval: 20 * 1000,
+latitude: "",
+		longitude: "",
+        useHeader: false,    // true if you want a header      
+        header: "",          // Any text you want. useHeader must be true
+        maxWidth: "300px",
+        animationSpeed: 0,
+        initialLoadDelay: 1250,
+        retryDelay: 2500,
+        updateInterval: 15 * 1000, // Every minute
 	}
 },
