@@ -32,15 +32,16 @@ TBD
 
 ## Config.js entry and options
 
-{
-latitude: "",
-		longitude: "",
-        useHeader: false,    // true if you want a header      
-        header: "",          // Any text you want. useHeader must be true
-        maxWidth: "300px",
-        animationSpeed: 0,
-        initialLoadDelay: 1250,
-        retryDelay: 2500,
-        updateInterval: 15 * 1000, // Every minute
-	}
-},
+    {
+           disabled: false,
+           module: 'MMM-PC-Stats',
+           position: 'top_left',
+		   config: {
+		   videoCard: "NVIDIA GeForce GTX660", // name of your video card
+			useHeader: true,           // true if you want a header. 
+        	   	header: "MMM-PC-Stats",    // Any text you want. useHeader must be true
+        	   	maxWidth: "300px",
+        	   	animationSpeed: 0,         // 0 = no fade in and out. Only CPU load and Free RAM usage changes.
+			updateInterval: 15 * 1000, // How often the CPU and Free RAM is checked for load and usage.
+		}
+    },
