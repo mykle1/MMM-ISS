@@ -36,15 +36,15 @@ TBD
 {
 disabled: false,
 module: 'MMM-ISS',
-position: 'top_left', 
-config: {
-	lat: "40.57",                                  // latitude
-	lng: "-74.11",                                  // longitude
-	units: "km",                              // mi = miles, mph / km = kilometers, km/h
-	useHeader: false,                         // true if you want a header      
-	header: "International Space Station",          // Any text you want. useHeader must be true
-	maxWidth: "254px",
-	animationSpeed: 3000,
-	updateInterval: 20 * 1000,
+	position: 'top_left', 
+		config: {
+		lat: "40.57",                                  // latitude
+		lng: "-74.11",                                  // longitude
+		units: "km",                              // mi = miles, mph / km = kilometers, km/h
+		useHeader: false,                         // true if you want a header      
+		header: "International Space Station",          // Any text you want. useHeader must be true
+		maxWidth: "254px",
+		animationSpeed: 3000,
+		updateInterval: 20 * 1000,
 	}
 },
