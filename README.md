@@ -33,15 +33,17 @@ TBD
 ## Config.js entry and options
 
     {
-           disabled: false,
-           module: 'MMM-PC-Stats',
-           position: 'top_left',
-		   config: {
-		   videoCard: "NVIDIA GeForce GTX660", // name of your video card
-			useHeader: true,           // true if you want a header. 
-        	   	header: "MMM-PC-Stats",    // Any text you want. useHeader must be true
-        	   	maxWidth: "300px",
-        	   	animationSpeed: 0,         // 0 = no fade in and out. Only CPU load and Free RAM usage changes.
-			updateInterval: 15 * 1000, // How often the CPU and Free RAM is checked for load and usage.
-		}
+        disabled: false,
+        module: 'MMM-ISS',
+        position: 'top_left',
+	config: {
+	    lat: "40.57",                                  // latitude
+	    lng: "-74.11",                                  // longitude
+	    units: "km",                              // mi = miles, mph / km = kilometers, km/h
+	    useHeader: false,                         // true if you want a header      
+	    header: "International Space Station",          // Any text you want. useHeader must be true
+	    maxWidth: "254px",
+	    animationSpeed: 3000,
+	    updateInterval: 20 * 1000,
+	}
     },
