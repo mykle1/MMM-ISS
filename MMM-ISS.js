@@ -26,7 +26,9 @@ Module.register("MMM-ISS", {
     getStyles: function() {
         return ["MMM-ISS.css"];
     },
-
+    getScripts: function() {
+	return ["moment.js"];	
+	},
 
     start: function() {
         Log.info("Starting module: " + this.name);
@@ -84,19 +86,6 @@ Module.register("MMM-ISS", {
 		
 		
 		
-		for (var i = 0, len = ISS.response.length; i < len; i++) {
-
-            var risetime = document.createElement("div");
-            risetime.classList.add("xsmall", "bright", "risetime");
-            risetime.innerHTML = "ISS appears @ " + moment.unix(ISS.response[i].risetime).format("h:mm a MMMM DD YYYY");
-            wrapper.appendChild(risetime);
-			
-			
-			var duration = document.createElement("div");
-            duration.classList.add("xsmall", "bright", "duration");
-            duration.innerHTML = "Duration of appearance is " + moment.unix(ISS.response[i].duration).format("m") + " min " + moment.unix(ISS.response[0].duration).format("ss") + " secs";
-            wrapper.appendChild(duration);
-			
 		
 			
 			var spacer = document.createElement("div");
@@ -107,15 +96,12 @@ Module.register("MMM-ISS", {
 			
 			
 		var iframe = document.createElement("IFRAME");
-		iframe.style = "border:0"
+		iframe.style = "border:0";
 		iframe.width = this.config.width;
 		iframe.height = this.config.height;
-		iframe.src = 'https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=New_York&city=Staten_Island&theme=2';
-		return iframe;
-			
-			
-        }
-		
+	iframe.src = 'https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=New_York&city=Staten_Island&theme=2';
+		//return iframe;
+	wrapper.appendChild(iframe);	
 
 		return wrapper;
 		
