@@ -8,12 +8,14 @@ Module.register("MMM-ISS", {
 
     // Module config defaults.
     defaults: {
+		height: "450px",
+		width: "310px",
         lat: "",                                  // latitude
         lng: "",                                  // longitude
 		units: "mi",                              // mi = miles,mph, km = kilometers,
         useHeader: false,                         // true if you want a header      
-        header: "Weather Without Icons",          // Any text you want. useHeader must be true
-        maxWidth: "300px",
+        header: "Spot The Station",          // Any text you want. useHeader must be true
+    //    maxWidth: "300px",
         animationSpeed: 3000,
         initialLoadDelay: 4250,
         retryDelay: 2500,
@@ -95,24 +97,21 @@ Module.register("MMM-ISS", {
             duration.innerHTML = "Duration of appearance is " + moment.unix(ISS.response[i].duration).format("m") + " min " + moment.unix(ISS.response[0].duration).format("ss") + " secs";
             wrapper.appendChild(duration);
 			
-/*			
-			var velocity = document.createElement("div");
-            velocity.classList.add("xsmall", "bright", "velocity");
-            velocity.innerHTML = "Velocity is " + VELALT.velocity;
-            wrapper.appendChild(velocity);
-			
-			
-			var altitude = document.createElement("div");
-            altitude.classList.add("xsmall", "bright", "altitude");
-            altitude.innerHTML = "Altitude is " + VELALT.altitude;
-            wrapper.appendChild(altitude);
-			
-*/			
+		
 			
 			var spacer = document.createElement("div");
             spacer.classList.add("xsmall", "bright", "spacer");
             spacer.innerHTML = " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ";
             wrapper.appendChild(spacer);
+			
+			
+			
+		var iframe = document.createElement("IFRAME");
+		iframe.style = "border:0"
+		iframe.width = this.config.width;
+		iframe.height = this.config.height;
+		iframe.src = 'https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=New_York&city=Staten_Island&theme=2';
+		return iframe;
 			
 			
         }

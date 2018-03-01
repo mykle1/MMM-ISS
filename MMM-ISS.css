@@ -33,3 +33,14 @@
 .MMM-ISS .spacer {
   color: cyan;              /* spacer color. Default is white. */
 }
+
+
+-webkit-scrollbar {
+	display: none;
+}
+
+/*
+
+<div style='display:inline-block; border: 1px solid #CCC; border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative; overflow: hidden; width: 310px; height: 450px;'> <iframe src='https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=New_York&city=Staten_Island&theme=2' width='310' height='450' frameborder='0' ></iframe></div>
+
+<div style='display:inline-block; border: 1px solid #CCC; border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative; overflow: hidden; width: 310px; height: 450px;'> <iframe src='https://spotthestation.nasa.gov/widget/widget.cfm?country=United_States&region=New_York&city=Staten_Island&theme=2' width='310' height='450' frameborder='0' ></iframe></div>
