@@ -7,7 +7,6 @@
  */
 const NodeHelper = require('node_helper');
 const request = require('request');
-// var leaflet = require('leaflet');
 
 
 
