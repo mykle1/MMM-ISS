@@ -27,7 +27,7 @@ It is the third brightest object in the sky.
 
 ## Examples
 
-![](pix/1.PNG)
+![](images/1.PNG)
 
 ## Installation
 
