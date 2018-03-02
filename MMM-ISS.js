@@ -19,7 +19,7 @@ Module.register("MMM-ISS", {
         animationSpeed: 0,
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 2 * 60 * 1000,
+        updateInterval: 2 * 60,                  // Data update interval in [seconds] 
 
     },
 
@@ -107,7 +107,7 @@ Module.register("MMM-ISS", {
     scheduleUpdate: function() {
         setInterval(() => {
             this.getISS();
-        }, this.config.updateInterval);
+        }, this.config.updateInterval * 1000);
         this.getISS(this.config.initialLoadDelay);
     },
 
