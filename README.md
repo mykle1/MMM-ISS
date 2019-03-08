@@ -51,6 +51,6 @@ It is the third brightest object in the sky.
 			   units: "mi",                               // mi = miles, mph / km = kilometers, km/h
 			   useHeader: false,                          // true if you want a header      
 			   header: "",                                // Any text you want. useHeader must be true
-			   updateInterval: 20 * 1000,
+			   updateInterval: 60 * 1000,
 		}
     },
