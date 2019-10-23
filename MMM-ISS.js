@@ -1,25 +1,25 @@
 /* Magic Mirror
  * Module: MMM-ISS
- * 
+ *
  * By Mykle1 - MIT Licensed
- * 
+ *
  */
 Module.register("MMM-ISS", {
 
     // Module config defaults.
     defaults: {
-		country: "United_States",                  // NO SPACES, USE UNDERSCORE
-		regionState: "Illinois",                   // NO SPACES, USE UNDERSCORE
-		city: "Chicago",                           // NO SPACES, USE UNDERSCORE
-        lat: "",                                  // latitude
-        lng: "",                                  // longitude
-		units: "mi",                              // mi = miles,mph, km = kilometers,
-        useHeader: false,                         // true if you want a header      
-        header: "Spot The Station",          // Any text you want. useHeader must be true
+		country: "France",
+		regionState: "",                          // Outside USA may not need regionState. If so, leave blank "".
+		city: "Toulon",
+        lat: "43.1242",                       // latitude
+        lng: "5.9280",                        // longitude
+		    units: "km",                          // mi = miles,mph, km = kilometers,
+        useHeader: false,                     // true if you want a header
+        header: "Spot The Station",           // Any text you want. useHeader must be true
         animationSpeed: 0,
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 2 * 60 * 1000,
+        updateInterval: 5 * 60 * 1000,
 
     },
 
@@ -27,7 +27,7 @@ Module.register("MMM-ISS", {
         return ["MMM-ISS.css"];
     },
     getScripts: function() {
-	return ["moment.js"];	
+	return ["moment.js"];
 	},
 
     start: function() {
@@ -42,7 +42,7 @@ Module.register("MMM-ISS", {
     },
 
     getDom: function() {
-		
+
 
         var wrapper = document.createElement("div");
         wrapper.className = "wrapper";
@@ -60,20 +60,42 @@ Module.register("MMM-ISS", {
             header.innerHTML = this.config.header;
             wrapper.appendChild(header);
         }
-		
-			
+
+        // replaces spaces with underscores so url doesn't fail
+        if (this.config.country != "") {
+          this.config.country = (this.config.country).replace(/ /g,"_");
+        }
+
+        // replaces spaces with underscores so url doesn't fail
+        if (this.config.regionState != "") {
+          this.config.regionState = (this.config.regionState).replace(/ /g,"_");
+        }
+
+        // replaces spaces with underscores so url doesn't fail
+        if (this.config.city != "") {
+          this.config.city = (this.config.city).replace(/ /g,"_");
+        }
+
+        // When specific countries do not require regionState, replace empty regionState with "None"
+        if (this.config.regionState === "") {
+          this.config.regionState = "None";
+        }
+
+
+
+
 		var iframe = document.createElement("IFRAME");
 		iframe.style = "border:0";
 		iframe.width = "310px";
 		iframe.height = "450px";
 		iframe.src = 'https://spotthestation.nasa.gov/widget/widget.cfm?country=' + this.config.country + '&region=' + this.config.regionState + '&city=' + this.config.city + '&theme=2';
-		wrapper.appendChild(iframe);	
-		
-		
+		wrapper.appendChild(iframe);
+
+
 		var ISS = this.ISS;
 		var VELALT = this.VELALT;
-		
-		
+
+
 		var velocity = document.createElement("div");
             velocity.classList.add("xsmall", "velocity");
 			if (this.config.units != "km"){
@@ -84,10 +106,10 @@ Module.register("MMM-ISS", {
             wrapper.appendChild(velocity);
 
 		return wrapper;
-		
-		
+
+
     },
-	
+
 	/////  Add this function to the modules you want to control with voice //////
 
     notificationReceived: function(notification, payload) {
@@ -96,24 +118,24 @@ Module.register("MMM-ISS", {
         }  else if (notification === 'SHOW_STATION') {
             this.show(1000);
         }
-            
+
     },
-	
+
 
     processISS: function(data) {
         this.ISS = data;
 	//	console.log(this.ISS); // for checking in dev console
         this.loaded = true;
     },
-	
-	
+
+
 	processVELALT: function(data) {
         this.VELALT = data;
 	//	console.log(this.VELALT); // for checking in dev console
         this.loaded = true;
     },
-	
-	
+
+
 
     scheduleUpdate: function() {
         setInterval(() => {
@@ -131,12 +153,12 @@ Module.register("MMM-ISS", {
             this.processISS(payload);
             this.updateDom(this.config.animationSpeed);
         }
-		
+
 		if (notification === "VELALT_RESULT") {
             this.processVELALT(payload);
             this.updateDom(this.config.fadeSpeed);
         }
-		
+
         this.updateDom(this.config.initialLoadDelay);
     },
 });
