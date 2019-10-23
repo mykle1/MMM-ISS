@@ -37,7 +37,7 @@ It is the third brightest object in the sky.
 
 
 ## Config.js entry and options
-
+```
 {
 disabled: false,
 module: 'MMM-ISS',
@@ -54,3 +54,4 @@ config: {
     updateInterval: 5 * 60 * 1000,
    }
 },
+```
