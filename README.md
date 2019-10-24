@@ -37,6 +37,29 @@ It is the third brightest object in the sky.
 
 
 ## Config.js entry and options
+
+### Location not in the United States
+
+```
+{
+disabled: false,
+module: 'MMM-ISS',
+position: 'top center',
+config: {
+    country: "Japan",
+    regionState: "",       // Leave empty "".
+    city: "Tokyo",
+    lat: "42.6977",              // latitude
+    lng: "23.3219",             // longitude
+    units: "km",                   // mi = miles, mph / km = kilometers, km/h
+    useHeader: false,              // true if you want a header
+    header: "",                    // Any text you want. useHeader must be true
+    updateInterval: 5 * 60 * 1000,
+  }
+},
+```
+### Location inside the United States
+
 ```
 {
 disabled: false,
@@ -44,7 +67,7 @@ module: 'MMM-ISS',
 position: 'middle_center',
 config: {
     country: "United States",
-    regionState: "New York",       // Outside USA may not need regionState. If so, leave blank "".
+    regionState: "New York",       // Requires state
     city: "New York",
     lat: "40.565819",              // latitude
     lng: "-74.117500",             // longitude
