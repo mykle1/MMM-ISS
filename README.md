@@ -51,7 +51,6 @@ module: 'MMM-ISS',
 position: 'top center',
 config: {
     country: "Japan",
-    regionState: "", // *** Leave empty ***
     city: "Tokyo",
     lat: "42.6977",                // latitude
     lng: "23.3219",                // longitude
@@ -71,8 +70,8 @@ module: 'MMM-ISS',
 position: 'middle_center',
 config: {
     country: "United States",
-    regionState: "New York",  // *** Requires state ***
-    city: "New York",
+    regionState: "New York",       // Requires state
+    city: "New York",              // Requires city
     lat: "40.565819",              // latitude
     lng: "-74.117500",             // longitude
     units: "mi",                   // mi = miles, mph / km = kilometers, km/h
