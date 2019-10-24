@@ -13,6 +13,10 @@ You sure as hell can! Every so often, you can see the ISS in your night sky. To 
 a bright star moving quickly above the horizon. Visible to the naked eye, the ISS is best seen at dawn and dusk.
 It is the third brightest object in the sky. 
 
+## Multiple instances
+
+* Simply add another config entry
+
 ## What you get
 
 * The current altitude of the ISS
@@ -47,10 +51,10 @@ module: 'MMM-ISS',
 position: 'top center',
 config: {
     country: "Japan",
-    regionState: "",       // Leave empty "".
+    regionState: "", // *** Leave empty ***
     city: "Tokyo",
-    lat: "42.6977",              // latitude
-    lng: "23.3219",             // longitude
+    lat: "42.6977",                // latitude
+    lng: "23.3219",                // longitude
     units: "km",                   // mi = miles, mph / km = kilometers, km/h
     useHeader: false,              // true if you want a header
     header: "",                    // Any text you want. useHeader must be true
@@ -67,7 +71,7 @@ module: 'MMM-ISS',
 position: 'middle_center',
 config: {
     country: "United States",
-    regionState: "New York",       // Requires state
+    regionState: "New York",  // *** Requires state ***
     city: "New York",
     lat: "40.565819",              // latitude
     lng: "-74.117500",             // longitude
