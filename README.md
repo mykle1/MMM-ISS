@@ -81,3 +81,7 @@ config: {
    }
 },
 ```
+## Attention = Note from user about location issues
+
+@timma11 wrote:
+@Mykle1, Thanks for making these modules. I have 2 of yours installed. Might I suggest adding to the readme that the module can’t use every location and that it can only use ones listed on the findthesation.nasa.gov site.
